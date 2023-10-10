@@ -1,13 +1,9 @@
-require_relative 'lib/student'
-require_relative 'lib/teacher'
+require_relative 'lib/person'
+require_relative 'lib/decorator'
 
-student = Student.new(9, 'En', 'Vicky')
-puts student.name
-student.name = 'Gloire'
-puts student.name
-puts student.can_use_services?
-puts "Correct name #{student.correct_name}"
-
-teacher = Teacher.new(34, 'Machine Learning', 'Dry')
-puts teacher.name
-puts teacher.can_use_services?
+person = Person.new(22, 'maximilianus')
+person.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+puts capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+puts capitalized_trimmed_person.correct_name
