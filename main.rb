@@ -5,3 +5,4 @@ puts s.name
 s.name = 'Gloire'
 puts s.name
 puts s.classroom
+puts s.can_use_services
