@@ -39,7 +39,7 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-This project primarily build with `Ruby`.
+This project primarily built with `Ruby`.
 
 <details>
 <summary>Language</summary>
