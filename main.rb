@@ -1,4 +1,4 @@
-require_relative 'student'
+require_relative 'lib/student'
 
 s = Student.new(9, 'En', 'Vicky')
 puts s.name
