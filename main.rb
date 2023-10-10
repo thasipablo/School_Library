@@ -1,8 +1,16 @@
 require_relative 'lib/student'
+require_relative 'lib/teacher'
 
-s = Student.new(9, 'En', 'Vicky')
-puts s.name
-s.name = 'Gloire'
-puts s.name
-puts s.classroom
-puts s.can_use_services
+student = Student.new(9, 'En', 'Vicky')
+puts student.name
+student.name = 'Gloire'
+puts student.name
+puts student.classroom
+puts student.can_use_services
+
+teacher = Teacher.new(34, 'Machine Learning', 'Dry')
+puts teacher.name
+puts teacher.specialization
+teacher.specialization = 'Blockchain'
+puts teacher.specialization
+puts teacher.can_use_services
