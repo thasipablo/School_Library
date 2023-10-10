@@ -155,12 +155,6 @@ Thanks to all <img src="https://assets-global.website-files.com/5dbb30f00775d4c3
 
 <!-- FAQ (optional) -->
 
-## ❓ FAQ <a name="faq"></a>
-
-Section in build ...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
