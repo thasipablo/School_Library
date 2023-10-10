@@ -1,5 +1,6 @@
 require_relative 'lib/person'
-require_relative 'lib/decorator'
+require_relative 'lib/capital_decorator'
+require_relative 'lib/trimmer_decorator'
 
 person = Person.new(22, 'maximilianus')
 person.correct_name
