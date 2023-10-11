@@ -11,5 +11,5 @@ class Book
   def add_rental(date, person)
     rental = Rental.new(date, self, person)
     rentals << rental
-  end  
+  end
 end
