@@ -2,7 +2,7 @@ require_relative 'nameable'
 
 class Person < Nameable
   attr_reader :id, :rentals
-  attr_accessor :name, :age
+  attr_accessor :age, :name, :rentals, :parent_permission
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
@@ -24,6 +24,20 @@ class Person < Nameable
   def add_rental(date, book)
     rental = Rental.new(date, book, self)
     rentals << rental
+  end
+
+  def description
+    "[#{self.class.name}] Name: #{name}, ID: #{id}, Age: #{age}"
+  end
+
+  def rentals_description
+    if @rentals.length.positive?
+      @rentals.each do |rental|
+        puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}"
+      end
+    else
+      puts 'No record found'
+    end
   end
   
   private
