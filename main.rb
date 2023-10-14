@@ -23,7 +23,6 @@ class Launcher
     when '2'
       get_list_person(all_person, false)
     when '3'
-      print 'Do you want to create a student (1) or a teacher (2) [Input the number]: '
       choice = gets.chomp
       add_new_person(all_person, choice)
     when '4'

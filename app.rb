@@ -26,8 +26,6 @@ module Library
   end
 
   # Method that displays all recorded books
-  # list_book: array of books
-  # show_index: true|false
   def get_list_books(list_book, show_index)
     puts "\nAll Books:"
     if list_book.length.positive?
@@ -42,8 +40,6 @@ module Library
   end
 
   # Method that displays all recorded person
-  # list_person: array of person
-  # show_index: true|false
   def get_list_person(list_person, show_index)
     puts "\nAll People:"
     if list_person.length.positive?
@@ -58,7 +54,6 @@ module Library
   end
 
   # Method that displays all user rental
-  # list_person: array of person
   def get_user_rental(list_person)
     puts 'All rentals for a given person id'
     id = gets.chomp
@@ -69,9 +64,8 @@ module Library
   end
 
   # Method that helps to add new person to the array
-  # list_person: array of person
-  # choice: string - option value
   def add_new_person(list_person, choice)
+    print 'Do you want to create a student (1) or a teacher (2) [Input the number]: '
     return unless valid_number?(%w[1 2], choice)
 
     print 'Age: '
@@ -107,9 +101,6 @@ module Library
   end
 
   # Method that helps to add new rental to the array
-  # list_rental: array of rentals
-  # list_book: array of books
-  # list_person: array of person
   def create_new_rental(list_rental, list_book, list_person)
     puts 'Select a book from the following list by number'
     get_list_books(list_book, true)

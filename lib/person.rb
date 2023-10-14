@@ -39,7 +39,7 @@ class Person < Nameable
       puts 'No record found'
     end
   end
-  
+
   private
 
   def of_age
