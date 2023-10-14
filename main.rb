@@ -33,8 +33,6 @@ class Launcher
       get_user_rental(all_person)
     when '7'
       exit
-    else
-      wrong_number_msg
     end
   end
 end
