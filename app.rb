@@ -99,22 +99,22 @@ module Library
     success_msg('Book')
   end
 
-  # Method that helps to add new rental to the array
+  # Method to create a rental
   def create_new_rental(list_rental, list_book, list_person)
-    puts 'Select a book from the following list by number'
+    puts 'Select a book from the following list by number:'
     get_list_books(list_book, true)
     book_index = gets.chomp.to_i
-    puts 'Select a person from the following list by number (not id)'
+
+    puts 'Select a person from the following list by number (not id):'
     get_list_person(list_person, true)
     person_index = gets.chomp.to_i
 
-    if !list_person[person_index.to_i].nil? && !list_book[book_index.to_i].nil?
-      rental = Rental.new(list_person[person_index.to_i], list_book[book_index.to_i], nil)
+    if person_index < list_person.length && book_index < list_book.length
       print 'Date: '
       rental_date = gets.chomp
-      rental.date = rental_date
-      success_msg('Rental')
+      rental = Rental.new(rental_date, list_book[book_index], list_person[person_index])
       list_rental.push(rental)
+      success_msg('Rental')
     else
       wrong_number_msg
     end
