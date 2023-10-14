@@ -23,18 +23,28 @@ class Launcher
     when '2'
       get_list_person(all_person, false)
     when '3'
-      choice = gets.chomp
-      add_new_person(all_person, choice)
+      add_new_person_menu(all_person)
     when '4'
       add_new_book(all_books)
     when '5'
-      create_new_rental(all_rentals, all_books, all_person)
+      create_new_rental_menu(all_rentals, all_books, all_person)
     when '6'
       get_user_rental(all_person)
     when '7'
       exit
+    else
+      wrong_number_msg
     end
   end
+
+  def add_new_person_menu(all_person)
+    choice = gets.chomp
+    add_new_person(all_person, choice)
+  end
+
+  def create_new_rental_menu(all_rentals, all_books, all_person)
+    create_new_rental(all_rentals, all_books, all_person)
+  end  
 end
 
 def main
