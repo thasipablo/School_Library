@@ -65,7 +65,6 @@ module Library
 
   # Method that helps to add new person to the array
   def add_new_person(list_person, choice)
-    print 'Do you want to create a student (1) or a teacher (2) [Input the number]: '
     return unless valid_number?(%w[1 2], choice)
 
     print 'Age: '
@@ -104,10 +103,10 @@ module Library
   def create_new_rental(list_rental, list_book, list_person)
     puts 'Select a book from the following list by number'
     get_list_books(list_book, true)
-    book_index = gets.chomp
+    book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
     get_list_person(list_person, true)
-    person_index = gets.chomp
+    person_index = gets.chomp.to_i
 
     if !list_person[person_index.to_i].nil? && !list_book[book_index.to_i].nil?
       rental = Rental.new(list_person[person_index.to_i], list_book[book_index.to_i], nil)
