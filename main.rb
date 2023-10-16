@@ -36,21 +36,26 @@ class Launcher
       wrong_number_msg
     end
   end
+
+  # Method that start the App
+  def start
+    all_books = []
+    all_person = []
+    all_rentals = []
+
+    loop do
+      choice = Launcher.new.option_list
+      exit if choice == '7'
+      display_menu(choice, all_books, all_person, all_rentals)
+    end
+  end
 end
 
 def main
   puts "\nWelcome to School Library App!"
   puts "\n"
 
-  all_books = []
-  all_person = []
-  all_rentals = []
-
-  loop do
-    choice = Launcher.new.option_list
-    exit if choice == '7'
-    Launcher.new.display_menu(choice, all_books, all_person, all_rentals)
-  end
+  Launcher.new.start
 end
 
 main
