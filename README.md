@@ -117,6 +117,10 @@ rubocop
 - LinkedIn: [@thasipablo](https://www.linkedin.com/in/thasipablo/)
 - Twitter (X): [@thasipablo_](https://twitter.com/thasipablo_)
 
+👤 **Macherki Nessrine**
+- GitHub: [@githubhandle](https://github.com/Nessrine88)
+- Twitter: [@twitterhandle](https://twitter.com/Nessour88)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nessrine-macherki-86959196/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
