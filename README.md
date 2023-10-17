@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Vet Clinic Database 🐈 ](#-vet-clinic-database--)
+- [📖 School Library ](#-school-library-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -18,7 +18,6 @@
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
 <br/>
@@ -136,7 +135,7 @@ Features to be added in upcoming iterations.
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Feel free to raise an [issue](https:/https://github.com/thasipablo/School_Library/issues/) or do a PR.
+Feel free to raise an [issue](https://github.com/thasipablo/School_Library/issues) or do a PR.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
