@@ -2,6 +2,7 @@ require './lib/student'
 require './lib/teacher'
 require './lib/book'
 require './lib/rental'
+require './lib/utils'
 
 module Library
   # Warnig method that displays a wrong message passed
@@ -63,15 +64,6 @@ module Library
     puts "\n"
   end
 
-  # Method that creates a new student
-  def create_student
-    student = Student.new(nil, age, name)
-    print 'Has Parent Permission? [Y/N]: '
-    par_permission = gets.chomp
-    student.parent_permission = (par_permission.upcase == 'Y')
-    list_person.push(student)
-  end
-
   # Method that helps to add new person to the array
   def add_new_person(list_person, choice)
     return unless valid_number?(%w[1 2], choice)
@@ -82,11 +74,10 @@ module Library
     name = gets.chomp
     case choice
     when '1'
-      create_student
+      student = create_student(name, age)
+      list_person.push(student)
     when '2'
-      teacher = Teacher.new(nil, age, name)
-      print 'Specialization: '
-      teacher.specialization = gets.chomp
+      teacher = create_teacher(name, age)
       list_person.push(teacher)
     end
     success_msg('Person')
