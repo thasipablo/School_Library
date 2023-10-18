@@ -1,5 +1,14 @@
 class Launcher
   include Library
+  attr_accessor :file_manager, :books, :person, :rentals
+
+  def initialize
+    @file_manager = FileManager.new
+    @books = @file_manager.load_books
+    @person = @file_manager.load_person
+    @rentals = @file_manager.load_rental
+  end
+
   # Print list of Main options
   def option_list
     puts 'Please choose an option by intering a number:'
