@@ -1,3 +1,6 @@
+require_relative 'app'
+require_relative '../data/file_manager'
+
 class Launcher
   include Library
   attr_accessor :file_manager, :books, :person, :rentals
@@ -25,20 +28,15 @@ class Launcher
   # Method that manages main option
   def display_menu(choice, all_books, all_person, all_rentals)
     case choice
-    when '1'
-      get_list_books(all_books, false)
-    when '2'
-      get_list_person(all_person, false)
+    when '1' then get_list_books(all_books, false)
+    when '2' then get_list_person(all_person, false)
     when '3'
       print 'Do you want to create a student (1) or a teacher (2) [Input the number]: '
       choice = gets.chomp
       add_new_person(all_person, choice)
-    when '4'
-      add_new_book(all_books)
-    when '5'
-      create_new_rental(all_rentals, all_books, all_person)
-    when '6'
-      get_user_rental(all_person)
+    when '4' then add_new_book(all_books)
+    when '5' then create_new_rental(all_rentals, all_books, all_person)
+    when '6' then get_user_rental(all_person, all_rentals)
     else
       wrong_number_msg
     end
