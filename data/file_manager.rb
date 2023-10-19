@@ -99,7 +99,7 @@ class FileManager
       person = Person.new(rental_data['person']['age'], rental_data['person']['name'])
       person.id = rental_data['person']['id']
       book = Book.new(rental_data['book']['title'], rental_data['book']['author'])
-      rental = Rental.new(person, book, rental_data['date'])
+      rental = Rental.new(rental_data['date'], book, person)
       rental
     end
   end
