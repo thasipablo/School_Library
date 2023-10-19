@@ -40,6 +40,14 @@ class Person < Nameable
     end
   end
 
+  def filter_user_rentals(all_rentals, user_id)
+    array_rentals = []
+    all_rentals.each do |rental|
+      array_rentals.push(Rental.new(rental.person, rental.book, rental.date)) if rental.person.id == user_id
+    end
+    array_rentals
+  end
+
   private
 
   def of_age

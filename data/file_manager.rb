@@ -1,12 +1,12 @@
 require 'json'
-require_relative 'book'
+require_relative '../lib/book'
 
 class FileManager
   attr_accessor :books, :person, :rentals, :files
 
-  BOOKS_PATH = 'data/storage/books_json.json'.freeze
-  PERSON_PATH = 'data/storage/person_json.json'.freeze
-  RENTALS_PATH = 'data/storage/rentals_json.json'.freeze
+  BOOKS_PATH = 'data/storage/books.json'.freeze
+  PERSON_PATH = 'data/storage/people.json'.freeze
+  RENTALS_PATH = 'data/storage/rentals.json'.freeze
 
   def initialize
     @books = []

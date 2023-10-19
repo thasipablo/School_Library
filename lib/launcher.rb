@@ -26,7 +26,8 @@ class Launcher
   end
 
   # Method that manages main option
-  def display_menu(choice, all_books, all_person, all_rentals)
+  # rubocop:disable Metrics/CyclomaticComplexity
+  def use_cases(choice, all_books, all_person, all_rentals)
     case choice
     when '1' then get_list_books(all_books, false)
     when '2' then get_list_person(all_person, false)
@@ -37,21 +38,16 @@ class Launcher
     when '4' then add_new_book(all_books)
     when '5' then create_new_rental(all_rentals, all_books, all_person)
     when '6' then get_user_rental(all_person, all_rentals)
+    when '7'
+      @file_manager.books = all_books
+      @file_manager.person = all_person
+      @file_manager.rentals = all_rentals
+      @file_manager.save_data
+      sleep 3
+      exit
     else
       wrong_number_msg
     end
   end
-
-  # Method that start the App
-  def start
-    all_books = []
-    all_person = []
-    all_rentals = []
-
-    loop do
-      choice = Launcher.new.option_list
-      exit if choice == '7'
-      display_menu(choice, all_books, all_person, all_rentals)
-    end
-  end
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
