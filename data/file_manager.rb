@@ -27,11 +27,11 @@ class FileManager
 
   def save_data
     save_person
-    puts 'Person saved !'
+    puts 'Person saved successfully'
     save_books
-    puts 'Books saved !'
+    puts 'Books saved successfully'
     save_rental
-    puts 'Rental saved !'
+    puts 'Rental saved successfully'
   rescue StandardError => e
     puts "Error saving Data : #{e.message}"
   end
@@ -79,16 +79,16 @@ class FileManager
   end
 
   def save_rental
-    temp_array = []
+    rentals = []
     @rentals.each do |rental|
-      temp_array.push({
-                        'person' => { 'age' => rental.person.age, 'name' => rental.person.name,
-                                      'id' => rental.person.id },
-                        'book' => { 'title' => rental.book.title, 'author' => rental.book.author },
-                        'date' => rental.date
-                      })
+      rentals.push({
+                     'person' => { 'age' => rental.person.age, 'name' => rental.person.name,
+                                   'id' => rental.person.id },
+                     'book' => { 'title' => rental.book.title, 'author' => rental.book.author },
+                     'date' => rental.date
+                   })
     end
-    File.write(RENTALS_PATH, temp_array.to_json)
+    File.write(RENTALS_PATH, rentals.to_json)
   end
 
   def load_rental
