@@ -1,14 +1,12 @@
-require './lib/student'
-require './lib/teacher'
-require './lib/book'
-require './lib/rental'
-require './lib/utils'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'book'
+require_relative 'rental'
 
 module Library
   # Warnig method that displays a wrong message passed
   def wrong_number_msg
-    puts "\n*** [WARNING] You passed a wrong number ***"
-    puts "\n"
+    puts "\n[WARNING] You passed a wrong number\n"
   end
 
   # method that checks whether option number is valid or not
@@ -22,8 +20,7 @@ module Library
 
   # Method that displays customized success message
   def success_msg(label)
-    puts "\n#{label} Created successfully"
-    puts "\n"
+    puts "\n#{label} Created successfully\n"
   end
 
   # Method that displays all recorded books
@@ -55,16 +52,16 @@ module Library
   end
 
   # Method that displays all user rental
-  def get_user_rental(list_person)
+  def get_user_rental(list_person, all_rentals)
     puts 'All rentals for a given person id'
     id = gets.chomp
     list_person.each do |person|
+      person.rentals = person.filter_user_rentals(all_rentals, id.to_i)
       person.rentals_description if person.id == id.to_i
     end
-    puts "\n"
   end
 
-  # Method that helps to add new person to the array
+  # Method that helps to add new person
   def add_new_person(list_person, choice)
     return unless valid_number?(%w[1 2], choice)
 
@@ -73,18 +70,28 @@ module Library
     print 'Name: '
     name = gets.chomp
     case choice
-    when '1'
-      student = create_student(name, age)
-      list_person.push(student)
-    when '2'
-      teacher = create_teacher(name, age)
-      list_person.push(teacher)
+    when '1' then create_student(age, name, list_person)
+    when '2' then create_teacher(age, name, list_person)
     end
     success_msg('Person')
   end
 
-  # Method that helps to add new book to the array
-  # list_book: array of books
+  def create_student(age, name, list_person)
+    student = Student.new(nil, age, name)
+    print 'Has Parent Permission? [Y/N]: '
+    par_permission = gets.chomp
+    student.parent_permission = (par_permission.upcase == 'Y')
+    list_person.push(student)
+  end
+
+  def create_teacher(age, name, list_person)
+    teacher = Teacher.new(nil, age, name)
+    print 'Specialization: '
+    teacher.specialization = gets.chomp
+    list_person.push(teacher)
+  end
+
+  # Method that helps to add new book
   def add_new_book(list_book)
     book = Book.new(nil, nil)
     print 'title: '
@@ -95,7 +102,7 @@ module Library
     success_msg('Book')
   end
 
-  # Method to create a rental
+  # Method that helps to add new rental
   def create_new_rental(list_rental, list_book, list_person)
     puts 'Select a book from the following list by number:'
     get_list_books(list_book, true)
