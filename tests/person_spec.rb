@@ -72,7 +72,7 @@ describe Person do
       rentals = [rental1, rental2, rental3]
       filtered_rentals = person.filter_user_rentals(rentals, person.id)
 
-      expect(filtered_rentals).not to include(rental3)
+      expect(filtered_rentals).not_to include(rental3)
     end
   end
 
